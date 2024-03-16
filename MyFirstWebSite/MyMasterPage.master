@@ -1,0 +1,120 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MyMasterPage.master.cs" Inherits="MyMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <!-- Title -->
+    <title>My First Website</title>
+    <link rel="shortcut icon" href="/Images/logo-icon.png" style="width:32px; height:32px;" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="MyCSS.css" />
+
+    <!-- Fonts -->
+    <link href='http://serve.fontsproject.com/css?family=Alef:400' rel='stylesheet' type='text/css'>
+    
+     <!-- Javascript functions -->
+    <script src="MyJs.js"></script>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="layout">
+    <table border="0" style="width:100%;">
+        <!-- Header -->
+        <tr style="width:14%; background-color:black; text-align:center;">
+            <td><a href="HomePage.aspx"><img src="/images/logo.png" width="230" height="100"/></a></td>
+            <td>
+                <table style="width:100%;">
+                    <tr class="topnav">
+                        <th><a href="HTML.aspx"             <% if (Request.FilePath.IndexOf("HTML.aspx") != -1){ %>             class="active" <%}%>>HTML</a></th>
+                        <th><a href="CSS.aspx"              <% if (Request.FilePath.IndexOf("CSS.aspx") != -1) { %>             class="active" <%}%>>CSS</a></th>                      
+                        <th><a href="Javascript.aspx"       <% if (Request.FilePath.IndexOf("Javascript.aspx") != -1){ %>       class="active" <%}%>>Javascript</a></th>
+                        <th><a href="PersonalDisplay.aspx"  <% if (Request.FilePath.IndexOf("PersonalDisplay.aspx") != -1){ %>  class="active" <%}%>>תצוגה מותאמת אישית</a></th>
+                        <th><a href="MembersOnly.aspx"      <% if (Request.FilePath.IndexOf("MembersOnly.aspx") != -1 || Request.FilePath.IndexOf("Result.aspx") != -1){ %>      class="active" <%}%>>דף למשתמשים רשומים בלבד</a></th>
+                        <th><a href="Links.aspx"            <% if (Request.FilePath.IndexOf("Links.aspx") != -1){ %>            class="active" <%}%>>קישורים חשובים</a></th>
+                    </tr>
+                </table>
+            </td>
+
+            <td style="width:14%; vertical-align:bottom; text-align:center;">
+                <!-- תצוגה מותאמת אישית ומונה מבקרים -->
+                <h5 style="color: white;">
+                    <%Response.Write(" שלום " + Session["userName"] ); %> ,<br />
+                    
+                    <%if ((string)Session["userName"] == "אורח"){%>
+                    [<a href="Registration.aspx">הרשמה</a>]
+                    [<a href="Login.aspx">התחברות</a>] <br />
+                    [<a href="AdminLogin.aspx">התחברות מנהל</a>] 
+                    
+                    <%}else if ((string)Session["userName"] == "מנהל"){%>
+                    [<a href="AdminHome.aspx">דף הבית מנהל</a>]
+                    [<a href="Logout.aspx">התנתקות</a>]
+                   
+                    <%}else{%>
+                    [<a href="Logout.aspx">התנתקות</a>]
+                    <%}%>
+                    
+                    <br />
+                    <label style="font-size:small;"><%Response.Write("עד עכשיו נכנסו לאתר : " + Application["counter"]); %></label>
+                </h5>
+            </td>
+        </tr>
+
+        <!-- Main Content Area -->
+        <tr>
+            <td></td>
+            <td>
+                <div class="container">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+
+        <!-- Footer -->
+        <tr dir="ltr" style="background-color:black; text-align:left; vertical-align:central;">
+            <td></td>
+            <td><br />
+                <table border="0" style="color:white; font-size:x-small; border-spacing:15px; ">
+                    <tr style="vertical-align:top;">
+                        <td><img src="/images/location.png" width="32" height="32"/></td>
+                        <td>
+                            <b>Our Address:</b><br/>
+                            One Infinite Loop<br/>
+                            Cupertino, CA 95014<br/><br/>
+                        </td>
+                        <td><img src="/images/spacer.png" width="1" height="45"/></td>
+                        <td><img src="/images/callus.png" width="32" height="32" /></td>
+                        <td>
+                            <b>Call Us:</b><br/>
+                            +972-52-9876543<br/>
+                        </td>
+                        <td><img src="/images/spacer.png" width="1" height="45"/></td>
+                        <td><img src="/images/emailus.png" width="32" height="32" /></td>
+                        <td>
+                            <b>Email Us at:</b><br/>
+                            <a href="mailto:contact@somemail.com">contact@somemail.com</a><br/>
+                        </td>
+                        <td><img src="/images/spacer.png" width="1" height="45"/></td>
+                        <td>
+                            <a href="http://www.facebook.com"  target="_blank"><img src="/images/facebook.png"  width="40" height="40" /></a>&nbsp;
+                            <a href="http://www.instagram.com" target="_blank"><img src="/images/instagram.png" width="40" height="40" /></a>&nbsp;
+                            <a href="http://www.whatsapp.com"  target="_blank"><img src="/images/whatsapp.png"  width="40" height="40" /></a>&nbsp;
+                            <a href="http://www.twitter.com"   target="_blank"><img src="/images/twitter.png"   width="40" height="40" /></a>&nbsp;
+                            <a href="http://www.linkedin.com"  target="_blank"><img src="/images/linkedin.png"  width="40" height="40" /></a>&nbsp;
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr><td colspan="10"><b>&#169; 2021 All Copyrights Reserved To Adi Levinsky</b></td></tr>
+                </table>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+</body>
+</html>

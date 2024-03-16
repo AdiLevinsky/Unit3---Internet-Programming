@@ -1,0 +1,213 @@
+﻿body {
+    font-family: 'Alef', serif;
+}
+
+.layout {
+    background: url(/images/01-bg.jpg);
+    direction:rtl;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    border-spacing: 0px;
+    padding: 0px;
+}
+
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+
+/*---- Main Menu Design ----*/
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 40px 14px 36px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #84B0AF;
+    color: white;
+}
+
+/*---- Sticky Notes ----*/
+.ulSticky {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.liSticky {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    display: block;
+    height: 12em;
+    width: 12em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(0deg);
+    transition: transform .15s linear;
+    margin: 1em;
+}
+
+.liSticky3 {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    display: block;
+    height: 32em;
+    width: 17em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(0deg);
+    transition: transform .15s linear;
+    margin: 1em;
+}
+
+.stickyNote {
+    text-decoration: none;
+    color: #000;
+    background: #ffc;
+    display: block;
+    height: 20em;
+    width: 23em;
+    padding: 2em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(-3deg);
+    transition: transform .15s linear;
+}
+
+.stickyTape {
+    position: absolute;
+    left: -10px;
+    top: -165px;
+    transform: rotate(-4deg);
+    height: 350px;
+    width: 450px;
+}
+
+.stickyTapeSmall {
+    position: absolute;
+    left: -60px;
+    top: -120px;
+    transform: rotate(-4deg);
+    height: 250px;
+    width: 350px;
+}
+
+.stickyTapeSmall3 {
+    position: absolute;
+    left: -30px;
+    top: -120px;
+    transform: rotate(-4deg);
+    height: 250px;
+    width: 350px;
+}
+
+/*---- Gray Box ----*/
+.box {
+    text-decoration: none;
+    color: #000;
+    background: #f2f2f2;
+    display: block;
+    height: 20em;
+    width: 18em;
+    padding: 2em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transition: transform .15s linear;
+}
+
+/*---- Buttons ----*/
+input[type=reset], input[type=submit], input[type=button] {
+    transition-duration: 0.4s;
+    background-color: #949494; /* light gray */
+    color: white;
+    font-size: 14px;
+    padding: 6px 22px;
+    border-radius: 12px;
+}
+
+input[type=reset]:hover, input[type=submit]:hover,, input[type=button]:hover {
+    background-color: #333; /* dark gray - like menu */
+    color: white;
+}
+
+/*----- For AdminHome Users table cells -----*/
+.inputToLabel {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    width: 110px;
+    text-align: center;
+    outline: none;
+}
+
+.inputToLabelLarge {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    width: 200px;
+    outline: none;
+    direction:ltr;
+    text-align: right;
+}
+
+/*----- AdminHome Table Design ------*/
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 95%;
+}
+
+.styled-table thead tr {
+    background-color: #84B0AF;
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 6px 2px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    background-color: white;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #84B0AF;
+}
+
+/*----- MasterPage main content area ------*/
+.container {
+    min-height: 36em;
+    
+}
