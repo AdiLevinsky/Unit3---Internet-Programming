@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-    <div style="width:98%;">
-        
+    <div style="width:90%; right: 100px; position:fixed;">
+        <br />
         <h2>פרטי המשתמשים הרשומים לאתר</h2>
         <h3>סינון תוצאות חיפוש לפי:</h3>
         <form name ="search" method="post" action="AdminHome.aspx" runat="server">
@@ -34,8 +34,14 @@
             </table>
         </form>
         <br /><hr />
-    
-        <div style="width: 60em ;height:25em;overflow-y: scroll;">
+
+        <%if(Request.QueryString["code"] == "1") { %>
+            <div style="color:red;">התרחשה שגיאה בעת הניסיון לעדכן את בסיס הנתונים, אנא בדקו ותקנו אותה</div>
+        <%} else if(Request.QueryString["code"] == "2") { %>
+            <div style="color:red;">התרחשה שגיאה בעת הניסיון למחוק רשומה מבסיס הנתונים, אנא בדקו ותקנו אותה</div>
+        <%}%>
+
+        <div style="height:25em;overflow-y: scroll;">
             <%=adm %>   
         </div>
     </div>

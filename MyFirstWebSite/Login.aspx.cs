@@ -9,17 +9,24 @@ namespace MyFirstWebSite
         {
             if (IsPostBack) // אבחנה האם טעינה ראשונה של הקובץ או לאחר שליחת הטופס
             {
-                string queryStr, fname;
+                string queryStr, fname, isAdmin;
                 string userMail = Request.Form["userMail"];
                 string userPwd = Request.Form["userPwd"];
 
                 //בדיקה האם קיימת רשומה בטבלה עם אותם ערכים בשדות דואל וסיסמה
-                queryStr = "SELECT userFname FROM tbl_users WHERE userMail = '" + userMail + "' AND userPwd = '" + userPwd + "'";
+                queryStr = "SELECT * FROM tbl_users WHERE userMail = '" + userMail + "' AND userPwd = '" + userPwd + "'";
 
-                // שליפת השם הפרטי של המשתמש מתוך הרשומה במידה ונמצאה התאמה בבסיס הנתונים
-                fname = SqlDBHelper.GetFieldValue(queryStr, "userFname");
+                // שליפת השם הפרטי וסוג המשתמש מתוך הרשומה במידה ונמצאה התאמה בבסיס הנתונים
+                fname   = SqlDBHelper.GetFieldValue(queryStr, "userFname");
+                isAdmin = SqlDBHelper.GetFieldValue(queryStr, "isAdmin");
 
-                if (fname != null) //הצלחה
+                if(isAdmin != null && isAdmin.ToLower() == "true") // כניסת מנהל
+                {
+                    Session["userName"] = "מנהל";
+                    Session["Admin"] = true;
+                    Response.Redirect("AdminHome.aspx"); //ניתוב לדף הבית של המנהל
+                }
+                else if (fname != null) //כניסת משתמש רגיל
                 {
                     Session["userName"] = fname;
                     Response.Redirect("HomePage.aspx"); //ניתוב לדף הבית

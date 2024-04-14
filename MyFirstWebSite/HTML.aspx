@@ -13,7 +13,7 @@
             <img src="/Images/washi-tape.png" class="stickyTapeSmall" />
             <h3>קישור חיצוני</h3>
             <p>קישור לדף אינטרנט שאינו שייך לאתר שלנו, למשל לאתר <a href="https://www.w3schools.com/default.asp">w3schools</a>.</p>
-            <p style="font-size:small;">חפשו כיצד פותחים את הקישור בלשונית חדשה.</p>
+            <p style="font-size:small;">חפשו כיצד פותחים את הקישור באמצעות קוד בלשונית חדשה.</p>
         </li>
 
         <li class="liSticky">
@@ -21,14 +21,16 @@
             <h3>תמונה</h3>
             <p style="text-align:center"><img src="Images/hi.jpeg" width="140" height="120" style="border:groove;border-width:thick;"/></p>
         </li>
-
+        
         <li class="liSticky">
             <img src="/Images/washi-tape.png" class="stickyTapeSmall" />
             <h3>קישור עוגן</h3>
             <p>קישור למיקום פנימי בתוך אותו הדף.</p>
             <p style="font-size:small;">כדי להגיע לתחתית העמוד לחצו <a href="#ancorBottomLinkId">כאן</a>.</p>
         </li>
+    </ul>
 
+    <ul class="ulSticky">
         <li class="liSticky" style="height:33em; width:35em;" >
             <img src="/Images/washi-tape.png" class="stickyTapeSmall" style="left:160px;"/>
             <h3>סרטון</h3>

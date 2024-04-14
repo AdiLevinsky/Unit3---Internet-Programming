@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
+    <br />
     <h2>דוגמה לדף טיפול בקודי הודעות מהשרת</h2>
     <br />
 

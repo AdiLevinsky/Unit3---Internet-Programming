@@ -4,141 +4,121 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace MyFirstWebSite
 {
     public partial class AdminEditUser : System.Web.UI.Page
     {
-        public string edit;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Admin"] != null) // הדף זמין רק למנהל האתר
             {
-                if (!IsPostBack) // במקרה הנ"ל מדובר על טעינה ראשונה
+                if (!IsPostBack) // טעינה ראשונה של הדף
                 {
-                    // שאילת הנתונים
-                    string userMail = Request.Form["userMail"];
-                    string userPwd = Request.Form["userPwd"];
-                    string userFname = Request.Form["userFname"];
-                    string userLname = Request.Form["userLname"];
-                    string userPhone = Request.Form["userPhone"];
-                    string userGender = Request.Form["userGender"];
-                    string userColors = Request.Form["userColors"];
-                    string userDistrict = Request.Form["userDistrict"];
-
-                    // הגדרת הטופס
-                    edit = "<form name='updateForm' method='post' onsubmit='return validateForm(false)' action='AdminUpdateUser.aspx' runat='server'>";
-                    edit += "<table style='width: 100%;border-spacing: 5px;'>";
-                    edit += "<tr>";
-                    edit += "<td style='color: red; width: 10px;'> *</td>";
-                    edit += "<td style='width: 15%;'>כתובת דוא\"ל:</td>";
-                    edit += "<td><input type='text' id='userMail' name='userMail' value='" + userMail + "' class='inputToLabelLarge' style='font-weight:bold;' readonly/></td>";
-                    edit += "<td style='color:red;' id='userMailErr' class='ErrMsg'></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td style='color: red; width: 10px;'> *</td>";
-                    edit += "<td>סיסמה:</td>";
-                    edit += "<td><input type='password' id='userPwd' name='userPwd' value='" + userPwd + "'/>&nbsp;&nbsp;";
-                    edit += "<img src='Images/show.png' id='showHidePwd' onclick='togglePassword(this)' width='23' height='23' style='vertical-align:bottom;'/></td>";
-                    edit += "<td style='color:red;' id='userPwdErr' class='ErrMsg'></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td style='color: red; width: 10px;'> *</td>";
-                    edit += "<td>שם פרטי:</td>";
-                    edit += "<td><input type='text' id='userFname' name='userFname' value='" + userFname + "'/></td>";
-                    edit += "<td style='color:red;' id='userFnameErr' class='ErrMsg'></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td style='color: red; width: 10px;'> *</td>";
-                    edit += "<td>שם משפחה:</td>";
-                    edit += "<td><input type='text' id='userLname' name='userLname' value='" + userLname + "'/></td>";
-                    edit += "<td style='color:red;' id='userLnameErr' class='ErrMsg'></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td style='color: red; width: 10px;'> *</td>";
-                    edit += "<td>מספר טלפון:</td>";
-                    edit += "<td><input type='text' id='userPhone' name='userPhone' value='" + userPhone + "'/></td>";
-                    edit += "<td style='color:red;' id='userPhoneErr' class='ErrMsg'></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td style='color: red; width: 10px;'> *</td>";
-                    edit += "<td>מין:</td>";
-                    edit += "<td>";
-                    edit += "<input type='radio' id='male'   name='userGender' value='male'  " + IsChecked(userGender, "male") + "/> זכר";
-                    edit += "<input type='radio' id='female' name='userGender' value='female'" + IsChecked(userGender, "female") +"/> נקבה";
-                    edit += "</td></tr>";
-
-                    edit += "<tr>";
-                    edit += "<td></td>";
-                    edit += "<td>צבעים אהובים:</td>";
-                    edit += "<td>";
-                    edit += "<input type='checkbox' id='black'  name='userColors' value='black' " + IsCBChecked("black", userColors) + "/> שחור";
-                    edit += "<input type='checkbox' id='gray'   name='userColors' value='gray'  " + IsCBChecked("gray", userColors) + "/> אפור";
-                    edit += "<input type='checkbox' id='white'  name='userColors' value='white' " + IsCBChecked("white", userColors) + "/> לבן";
-                    edit += "</td><td style='color: red;' id='userColorsErr' class='ErrMsg'></td></tr>";
-
-                    edit += "<tr>";
-                    edit += "<td></td>";
-                    edit += "<td>אזור מגורים:</td>";
-                    edit += "<td>";
-                    edit += "<select name='userDistrict' id='userDistrict'>";
-                    edit += "<option value='choose'" + IsSelected(userDistrict, "choose") + ">בחר</option>";
-                    edit += "<option value='north' " + IsSelected(userDistrict, "north") + ">צפון</option>";
-                    edit += "<option value='center'" + IsSelected(userDistrict, "center") + ">מרכז</option>";
-                    edit += "<option value='south' " + IsSelected(userDistrict, "south") + ">דרום</option>";
-                    edit += "</select></td>";
-                    edit += "<td style='color:red;' id='userDistrictErr' class='ErrMsg'></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td colspan='4' style='color:red;'>* שדות חובה<br/></td>";
-                    edit += "</tr>";
-
-                    edit += "<tr>";
-                    edit += "<td colspan='2'></td>";
-                    edit += "<td>";
-                    edit += "<input type='submit' name='submit_update' id='regSubmit' value='עדכן'/>&nbsp;&nbsp;";
-                    edit += "<input type='button' value='חזור' onclick='window.history.back();'>";
-                    edit += "</td><td></td></tr>";
-
-                    edit += "</table>";
-                    edit += "</form>";
+                    FirstRender();
                 }
-                else // כניסה לא תקינה לדף העדכון - אין שדה מפתח דואל
+                else // לחיצה על כפתור ה- submit
                 {
-                    Response.Redirect("AdminHome.aspx");
+                    UpdateUserData();
                 }
             }
             else // משתמש לא מורשה
             {
-                Response.Redirect("AdminHome.aspx"); 
+                Response.Redirect("Login.aspx"); 
             }
         }
 
-        private string IsSelected(string distrinct, string currentValue)
+        private void FirstRender()
         {
-            if (currentValue == distrinct)
-                return " selected";
-            return "";
+            // שליפת הנתונים
+            string uMail = Request.Form["userMail"];
+            string uFname = Request.Form["userFname"];
+            string uLname = Request.Form["userLname"];
+            string uPhone = Request.Form["userPhone"];
+            string uGender = Request.Form["userGender"];
+            string uColors = Request.Form["userColors"];
+            string uDistrict = Request.Form["userDistrict"];
+
+            // שתילת הערכים בתוך שדות טופס העדכון
+            userMail.Value = uMail;
+            userFname.Value = uFname;
+            userLname.Value = uLname;
+            userPhone.Value = uPhone;
+            userMail.Value = uMail;
+
+            // סימון כפתור הרדיו הבחור
+            if (uGender == "male")
+                male.Checked = true;
+            else if (uGender == "female")
+                female.Checked = true;
+
+            // סימון תיבות הסימון checkbox
+            string[] colors = uColors.Split(',');
+            for (int i = 0; i < colors.Length; i++)
+            {
+                if (colors[i] == "white")
+                    white.Checked = true;
+                else if (colors[i] == "gray")
+                    gray.Checked = true;
+                else if (colors[i] == "black")
+                    black.Checked = true;
+            }
+
+            // סימון הבחירה ברשימה הנפתחת select
+            // סימון האפשרות הבחורה לפי האינדקס - המיקום של האפשרות בקוד
+            //1-north, 2-center, 3-south
+            if (uDistrict == "north")
+                userDistrict.SelectedIndex = 1;
+            else if (uDistrict == "center")
+                userDistrict.SelectedIndex = 2;
+            else if (uDistrict == "south")
+                userDistrict.SelectedIndex = 3;
         }
 
-        private string IsChecked(string gender, string currentValue)
+        private void UpdateUserData()
         {
-            if (currentValue == gender)
-                return " checked";
-            return "";
+            string uGender = "male", uDistrict = "", uColors = "";
+            
+            // טיפול בערך כפתורי הרדיו לשמירה
+            if (female.Checked)
+                uGender = "female";
+
+            // טיפול בערך רשימת ה- select הבחור
+            if (userDistrict.SelectedIndex == 1)
+                uDistrict = "north";
+            else if (userDistrict.SelectedIndex == 2)
+                uDistrict = "center";
+            else if (userDistrict.SelectedIndex == 3)
+                uDistrict = "south";
+
+            // טיפול בערכי תיבות הסימון שנבחרו - checkbox
+            if (white.Checked && uColors == "") uColors += "white";
+            else if (white.Checked && uColors != "") uColors += ",white";
+            
+            if (gray.Checked && uColors == "") uColors += "gray";
+            else if (gray.Checked && uColors != "") uColors += ",gray";
+            
+            if (black.Checked && uColors == "") uColors += "black";
+            else if (black.Checked && uColors != "") uColors += ",black";
+
+            // יצירת שאילתת העדכון
+            // שימו N לפני שדות שערכיהם יכולים להיות בעברית
+            string queryStr = "UPDATE tbl_users SET";
+            queryStr += "  userFname=N'" + userFname.Value + "'";
+            queryStr += ", userLname=N'" + userLname.Value + "'";
+            queryStr += ", userDistrict='" + uDistrict + "'";
+            queryStr += ", userGender='" + uGender + "'";
+            queryStr += ", userPhone='" + userPhone.Value + "'";
+            queryStr += ", userColors='" + uColors + "'";
+            queryStr += " WHERE userMail='" + userMail.Value + "'";
+
+            // ניתוב לדף הבא
+            if (SqlDBHelper.ExecuteNonQuery(queryStr))
+                Response.Redirect("AdminHome.aspx");
+            else // התרחשה שגיאה בזמן עדכון בסיס הנתונים
+                Response.Redirect("AdminHome.aspx?code=1"); //GET
         }
 
-        private string IsCBChecked(string color, string savedColors)
-        {
-            if (savedColors.IndexOf(color) != -1)
-                return " checked";
-            return "";
-        }
     }
 }

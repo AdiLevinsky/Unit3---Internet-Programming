@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="AdminEditUser.aspx" />
     <Content Include="AdminHome.aspx" />
-    <Content Include="AdminUpdateUser.aspx" />
     <Content Include="App_Data\MyFirstDB.mdf" />
     <Content Include="App_Data\MyFirstDB_log.ldf">
       <DependentUpon>MyFirstDB.mdf</DependentUpon>
@@ -79,6 +78,7 @@
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
     <Content Include="HTML.aspx" />
+    <Content Include="HtmlPage2.html" />
     <Content Include="Images\01-bg.jpg" />
     <Content Include="Images\accessDenied.png" />
     <Content Include="Images\callus.png" />
@@ -101,7 +101,6 @@
     <Content Include="Images\washi-tape.png" />
     <Content Include="Images\whatsapp.png" />
     <Content Include="Javascript.aspx" />
-    <Content Include="AdminLogin.aspx" />
     <Content Include="Links.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -128,13 +127,6 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminUpdateUser.aspx.cs">
-      <DependentUpon>AdminUpdateUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminUpdateUser.aspx.designer.cs">
-      <DependentUpon>AdminUpdateUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="DB_Services\SqlDBHelper.cs" />
     <Compile Include="CSS.aspx.cs">
@@ -168,13 +160,6 @@
     <Compile Include="Javascript.aspx.cs">
       <DependentUpon>Javascript.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Links.aspx.cs">
       <DependentUpon>Links.aspx</DependentUpon>
@@ -234,6 +219,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MyMasterPage.master" />
+    <Content Include="Files\ProjectBookTemplate.doc" />
+    <Content Include="Files\PesonalDisplay_Global_Logout.pdf" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

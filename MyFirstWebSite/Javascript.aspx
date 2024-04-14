@@ -7,13 +7,13 @@
 
     <table style="width:100%;">
         <tr>
-            <td><h2>טופס הרשמה עם בדיקות ולידציה</h2></td>
+            <td><br/><h2>טופס הרשמה עם בדיקות ולידציה</h2><br/></td>
             <td></td>
         </tr>
         <tr>
             <td>
-                <form name="registrationFrm" id="registrationFrm" method="post" onsubmit="return validateForm(true);" onreset="resetErrorMsg();" action="mailto:mymail@gmail.com?subject=Registration" enctype="text/plain">
-                    <table>
+                <form name="registrationFrm" id="registrationFrm" method="post" onsubmit="return validateForm();" onreset="resetErrorMsg();" action="mailto:mymail@gmail.com?subject=Registration" enctype="text/plain">
+                    <table style="position:fixed; right: 200px; top:250px;">
                         <tr>
                             <td style="color:red; width:10px;">*</td>
                             <td>כתובת דוא"ל:</td>
@@ -112,6 +112,7 @@
                         <tr>
                             <td width="10%"></td>
                             <td>
+                                <li>כוכביות אדומות לצד שדות שהם שדות חובה</li>
                                 <li>הודעות שגיאה מותאמות למהות השגיאה</li>
                                 <li>שדה לא ריק</li>
                                 <li>השדה מכיל אותיות בלבד</li>
@@ -131,5 +132,6 @@
             </td>
         </tr>
     </table>
+
 </asp:Content>
 

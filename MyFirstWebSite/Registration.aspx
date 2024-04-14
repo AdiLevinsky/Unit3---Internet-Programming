@@ -6,7 +6,7 @@
     
     <table style="width:100%">
         <tr>
-            <td><h2>טופס הרשמה</h2></td>
+            <td><br/><h2>טופס הרשמה</h2></td>
             <td></td>
         </tr>
         <tr>
@@ -16,10 +16,10 @@
         <tr>
             <td>
                 <form name="registrationFrm" id="registrationFrm" method="post" action="mailto:mymail@gmail.com?subject=Registration" enctype="text/plain">
-                    <table>
+                    <table style="position:fixed; right: 200px; top:250px;">
                         <tr>
                             <td>כתובת דוא"ל:</td>
-                            <td><input type="text" id="userMail" name="userMail"/></td>
+                            <td><input type="text" id="userMail" name="userMail" style="direction:ltr;"/></td>
                         </tr>
                         <tr>
                             <td>סיסמה:</td>

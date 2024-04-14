@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Header/Footer with Menu, Scrollable Main Content</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            height: 60px; /* Adjust header height as needed */
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: -60px;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 30px 0 10px;
+        }
+
+        .menu-links {
+            display: flex;
+            align-items: center;
+        }
+
+            .menu-links a {
+                color: #fff;
+                text-decoration: none;
+                margin-right: 20px;
+            }
+
+                .menu-links a:hover {
+                    text-decoration: underline;
+                }
+
+        .logo img {
+            width: auto;
+            height: 40px; /* Adjust logo height as needed */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            height: 40px; /* Adjust footer height as needed */
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        main {
+            margin-top: 100px; /* Adjust to accommodate header and menu header heights */
+            margin-bottom: 60px; /* Adjust to accommodate footer height */
+            padding: 20px;
+            overflow-y: auto; /* Enable vertical scroll if content exceeds height */
+        }
+        /* Add additional styling for main content as needed */
+    </style>
+</head>
+<body dir="rtl">
+
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Logo">
+        </div>
+        <div class="menu-links">
+            <a href="HTML.aspx" >HTML</a>
+            <a href="CSS.aspx" >CSS</a>
+            <a href="Javascript.aspx" >Javascript</a>
+            <a href="PersonalDisplay.aspx" <>תצוגה מותאמת אישית</a>
+            <a href="MembersOnly.aspx" >דף למשתמשים רשומים בלבד</a>
+            <a href="Links.aspx" >קישורים חשובים</a>
+        </div>
+        <div >
+            <!-- Add your user links here -->
+            <h5 style="color: white;">
+                שלום עדי ,<br />
+                [<a href="Registration.aspx">הרשמה</a>]
+                [<a href="Login.aspx">התחברות</a>] <br />
+                <br />
+                <label style="font-size:small;">עד עכשיו נכנסו לאתר : 8</label>
+            </h5>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </main>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+</body>
+</html>

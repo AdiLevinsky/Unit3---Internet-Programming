@@ -18,14 +18,18 @@ namespace MyFirstWebSite
                 if (email != null) // הפרמטר של האימייל לא עבר מסיבה כלשהי
                 {
                     // בניית שאילתת מחיקת המשתמש
-                    string queryStr = "DELETE FROM tbl_users WHERE userMail='" + email + "'"; 
+                    string queryStr = "DELETE FROM tbl_users WHERE userMail='" + email + "'";
 
-                    SqlDBHelper.ExecuteNonQuery(queryStr);
+                    // ניתוב לדף הבא
+                    if (SqlDBHelper.ExecuteNonQuery(queryStr))
+                        Response.Redirect("AdminHome.aspx"); 
+                    else // התרחשה שגיאה בזמן המחיקה מבסיס הנתונים
+                        Response.Redirect("AdminHome.aspx?code=2"); //GET
                 }
-                Response.Redirect("AdminHome.aspx"); // הפנייה לדף
+                
             }
             else // אם המנהל לא מחובר
-                Response.Redirect("AdminLogin.aspx"); // הפנייה לדף
+                Response.Redirect("Login.aspx"); // הפנייה לדף
         }
     }
 }

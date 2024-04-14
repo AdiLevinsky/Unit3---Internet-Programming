@@ -3,9 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <br />
     <h2>התחברות מהירה</h2>
+    <br />
     
-    <div class="center" style="width: 25%;">
+    <div class="center" style="width: 18%;">
 
         <div class="box">
             
@@ -30,13 +32,13 @@
                         <td>&emsp;&emsp;&emsp;<label style="color:red; width:10px;">* </label>כתובת דוא"ל:</td>
                     </tr>
                     <tr>
-                        <td>&emsp;&emsp;&emsp;<input type="text" id="userMail" name="userMail"/></td>
+                        <td>&emsp;&emsp;&emsp;<input type="text" id="userMail" name="userMail" style="direction:ltr;"/></td>
                     </tr>
                     <tr>
                         <td>&emsp;&emsp;&emsp;<label style="color:red; width:10px;">* </label>סיסמה:</td>
                     </tr>
                     <tr>
-                        <td>&emsp;&emsp;&emsp;<input type="password" id="userPwd" name="userPwd"/></td>
+                        <td>&emsp;&emsp;&emsp;<input type="password" id="userPwd" name="userPwd" style="direction:ltr;"/></td>
                     </tr>
                     <tr>
                         <td style="text-align:center;"><br />

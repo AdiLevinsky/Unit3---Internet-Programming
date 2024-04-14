@@ -5,9 +5,9 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <table style="width:100%">
+    <table style="width:80%">
         <tr>
-            <td><h2>טופס הרשמה עם שמירה לבסיס הנתונים</h2></td>
+            <td><br/><h2>טופס הרשמה עם שמירה לבסיס הנתונים</h2></td>
             <td></td>
         </tr>
         <tr>
@@ -16,14 +16,14 @@
         </tr>
         <tr>
             <td>
-                <form name="registrationFrm" id="registrationFrm" method="post" onsubmit="return validateForm(true);" onreset="resetErrorMsg();" action="RegistrationDB.aspx" runat="server" >
-                    <table>
-                            <%
-                            if (Request.QueryString["code"] == "1")
-                            { %>
+                <form name="registrationFrm" id="registrationFrm" method="post" onsubmit="return validateForm();" onreset="resetErrorMsg();" action="RegistrationDB.aspx" runat="server" >
+                    <table style="position:fixed; right: 200px; top:250px;">
+                            <%if (Request.QueryString["code"] == "1"){ %>
                                 <tr><td colspan="4" style="color:red;">משתמש בעל אימייל זהה כבר רשום במערכת, אנא נסו שנית</td></tr>
-                            <%}
-                            %>
+                            <%} else if(Request.QueryString["code"] == "2") { %>
+                                <tr><td colspan="4" style="color:red;">התרחשה שגיאה בזמן השמירה בבסיס הנתונים, אנא בדקו ותקנו אותה</td></tr>
+                            <%}%>
+
                         <tr>
                             <td style="color:red; width:10px;">*</td>
                             <td>כתובת דוא"ל:</td>
@@ -115,17 +115,17 @@
             </td>
 
             <td style="width:35%">  
-                <ul class="stickyNote" style="width:20em; height:20em;">
+                <ul class="stickyNote" style="width:21em; height:20em;">
                     <img src="/images/washi-tape.png" class="stickyTape" style="left:-30px" />
                     <h3>לפני הכל יש לוודא ש:</h3>
                     <table>
                         <tr>
                             <td width="10%"></td>
                             <td>
-                                <li>יצרתם תיקיית DB_Services בפרוייקט.</li><br />
-                                <li>יצרתם תיקיית App_Data בפרוייקט.</li><br />
-                                <li>מיקמתם את הקובץ SqlDBHelper <br />בתיקיית DB_Services.</li><br />
-                                <li>מיקמתם את קובץ ה- SQLServer (xxx.mdf) <br />בתיקיית App_Data.</li><br />
+                                <li>יצרתם תיקיית <b>DB_Services</b> בפרויקט.</li><br />
+                                <li>יצרתם תיקיית <b>App_Data</b> בפרויקט.</li><br />
+                                <li>מיקמתם את הקובץ <b>SqlDBHelper</b> <br />בתיקיית <b>DB_Services</b>.</li><br />
+                                <li>מיקמתם את קובץ ה- <b>SQLServer (xxx.mdf)</b> <br />בתיקיית <b>App_Data</b>.</li><br />
                             </td>
                         </tr>
                     </table>

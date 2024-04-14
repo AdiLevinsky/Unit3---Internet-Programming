@@ -1,5 +1,91 @@
 ﻿body {
     font-family: 'Alef', serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: black;
+    color: #fff;
+    height: 100px; /* Adjust header height as needed */
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+footer {
+    background-color: black;
+    color: #fff;
+    height: 60px; /* Adjust footer height as needed */
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    direction: ltr;
+}
+
+.menu-header {
+    background-color: #444;
+    color: #fff;
+    height: 40px; /* Adjust menu header height as needed */
+    padding: 10px 20px;
+    position: fixed;
+    top: 60px; /* Height of the header */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu-links {
+    display: flex;
+    align-items: center;
+    height: 50px; /* Adjust menu header height as needed */
+    padding: 10px 20px;
+    left: 200px;
+    width: 90%;
+    z-index: 1000;
+    margin: 20px;
+}
+
+    .menu-links a {
+        float: right;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 40px 14px 36px;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+        .menu-links a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+/* Add a color to the active/current link */
+        .menu-links a.active {
+            background-color: #84B0AF;
+            color: white;
+        }
+
+.logo img {
+    width: auto;
+    height: 100px; /* Adjust logo height as needed */
+    width: 230px;
+}
+
+.user-links {
+    right: 0;
+}
+
+main {
+    margin-top: 80px; /* Adjust to accommodate header height */
+    margin-bottom: 60px; /* Adjust to accommodate footer height */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scroll if content exceeds height */
 }
 
 .layout {
@@ -20,36 +106,6 @@ table {
     margin: auto;
     width: 30%;
     padding: 10px;
-}
-
-
-/*---- Main Menu Design ----*/
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: #333;
-  overflow: hidden;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: right;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 40px 14px 36px;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: #84B0AF;
-    color: white;
 }
 
 /*---- Sticky Notes ----*/

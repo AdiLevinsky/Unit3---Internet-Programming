@@ -5,9 +5,10 @@
 
     <div class="center" style="width:80%;">
         
+        <br />
         <h2>ברוכים הבאים!</h2>
         
-        <table border="0" style="width:100%; border-spacing:15px;"">
+        <table border="0" style="width:100%; border-spacing:25px;"">
             <tr>
                 <td rowspan="4"><img src="/images/shalom.png"/></td>
                 <td style="width:60%;">

@@ -50,9 +50,16 @@ public partial class RegistrationDB : System.Web.UI.Page
                 queryStr += ",N'" + userComments + "'";
                 queryStr += ")";
 
-                Session["userName"] = userFname;
-                SqlDBHelper.ExecuteNonQuery(queryStr);
-                Response.Redirect("HomePage.aspx");
+                // ניתוב לדף הבא
+                if (SqlDBHelper.ExecuteNonQuery(queryStr))
+                {
+                    Session["userName"] = userFname;
+                    Response.Redirect("HomePage.aspx");
+                }
+                else // התרחשה שגיאה בזמן השמירה בבסיס הנתונים
+                {
+                    Response.Redirect("RegistrationDB.aspx?code=2"); //GET
+                }
             }
         }
     }

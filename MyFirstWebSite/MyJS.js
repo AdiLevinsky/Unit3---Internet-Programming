@@ -1,8 +1,8 @@
 ﻿
-function validateForm(isRegForm) {
+function validateForm() {
     var countErrors = 0;
     resetErrorMsg();
-
+    
     if (validateMail() == false)
         countErrors++;
     if (validatePwd() == false)
@@ -13,7 +13,7 @@ function validateForm(isRegForm) {
         countErrors++;
     if (validatePhone() == false)
         countErrors++;
-    if (isRegForm && validateDate() == false)
+    if (validateDate() == false)
         countErrors++;
     if (validateRadio() == false)
         countErrors++;
@@ -21,7 +21,7 @@ function validateForm(isRegForm) {
         countErrors++;
     if (validateSelect() == false)
         countErrors++;
-
+    
     if (countErrors == 0)
         return true;
     return false;
@@ -165,17 +165,6 @@ function validateSelect() {
     return true;
 }
 
-function togglePassword(imgElem) {
-    var pwd = document.getElementById("userPwd");
-    if (pwd.type === "password") {
-        pwd.type = "text";
-        imgElem.src = "/Images/hide.png";
-    }
-    else {
-        pwd.type = "password";
-        imgElem.src = "/Images/show.png";
-    }
-}
 
 
 

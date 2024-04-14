@@ -3,8 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
+    <br />
     <h2>קישורים חשובים</h2>
     <br />
+
     <ul class="ulSticky">
         
         <li class="liSticky">
@@ -19,14 +21,14 @@
             <h3>תבנית לתיק פרויקט</h3>
             <p>מסמך שלד.</p>
             <p>תוכלו להיעזר בו בזמן כתיבת תיק הפרויקט.</p>
-            <p><a href="https://cms.education.gov.il/NR/rdonlyres/FD397E5B-40BE-4B38-9B8F-93E30CE5C738/180461/Tavnit1121.pdf" target="_blank">תבנית לתיק פרויקט</a></p>
+            <p><a href="Files/ProjectBookTemplate.doc" target="_blank">תבנית לתיק פרויקט</a></p>
         </li>
 
         <li class="liSticky">
             <img src="/Images/washi-tape.png" class="stickyTapeSmall" />
             <h3>מחוון לבדיקת הפרויקט</h3>
             <p>הקריטריונים על פיהם יבדק אתר האינטרנט.</p>
-            <p><a href="https://meyda.education.gov.il/files/CSIT/specifications-and-criteria.pdf" target="_blank">מחוון לבדיקת אתר האינטרנט</a></p>
+            <p><a href="https://meyda.education.gov.il/files/CSIT/899283_899373_20-07-2022.pdf" target="_blank">מחוון לבדיקת אתר האינטרנט</a></p>
         </li>
 
     </ul>

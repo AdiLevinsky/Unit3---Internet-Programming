@@ -2,9 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    
+    <br />
     <h2>תצוגה מותאמת אישית</h2>
     <br />
+    
     <ul class="stickyNote center" style="width:40em; height: 21em; transform: rotate(-1deg);">
         <img src="/images/washi-tape.png" class="stickyTape" style="left:90px;"/>
         <h3>תצוגה מותאמת אישית כוללת את התוספות הבאות:</h3>
