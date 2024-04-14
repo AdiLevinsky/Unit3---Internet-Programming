@@ -78,7 +78,6 @@
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
     <Content Include="HTML.aspx" />
-    <Content Include="HtmlPage2.html" />
     <Content Include="Images\01-bg.jpg" />
     <Content Include="Images\accessDenied.png" />
     <Content Include="Images\callus.png" />
